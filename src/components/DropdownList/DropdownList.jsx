@@ -6,18 +6,17 @@ const DropdownList = (props) => {
     const inlineStyle = {
         visibility: props.status,
     };
-    const swapStatus = (e) => {
+    const swapStatus = (state) => {
         const tmpStatus = [];
-        e.preventDefault();
-        const id = Number(e.target.parentNode.getAttribute('data-id'));
+        const id = state.id;
         listItems.map((item, i) => {
             item.status = '';
             if (item.id === id)  {
                 item.status = 'active';
             }
             tmpStatus.push(item);
-            setListItems(tmpStatus)
-        })
+            return setListItems(tmpStatus)
+        });
     }
     const initialState = [
         {
