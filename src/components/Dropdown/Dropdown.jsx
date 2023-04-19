@@ -9,7 +9,10 @@ const Dropdown = () => {
     const [listStatus, setListStatus] = useState(initialState);
 
     const handleClick = (e) => {
-        listStatus.visible === 'visible'? setListStatus({ visible: 'hidden'}) : setListStatus({ visible: 'visible'})
+        if (listStatus.visible === 'hidden') {
+            return setListStatus(prev =>  prev = {visible: 'visible'})
+        }
+        return setListStatus(prev =>  prev = {visible: 'hidden'})
     }
 
     return (
